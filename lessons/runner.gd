@@ -25,4 +25,5 @@ func _physics_process(delta: float) -> void:
 			if current_speed_percent < 0.8
 			else RunnerVisual.Animations.RUN
 		)
-	else: _runner_visual.animation_name = RunnerVisual.Animations.IDLE
+	else: 
+		_runner_visual.animation_name = RunnerVisual.Animations.IDLE
