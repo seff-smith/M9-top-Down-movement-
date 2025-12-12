@@ -4,7 +4,8 @@ extends CharacterBody2D
 @export var acceleration := 1200.0
 @export var deceleration := 1080.0
 
-@onready var _runner_visual: RunnerVisual = $RunnerVisualRed
+#@onready var _runner_visual: RunnerVisual = $RunnerVisualRed
+@onready var _runner_visual: RunnerVisual = %RunnerVisualRed
 
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -25,5 +26,5 @@ func _physics_process(delta: float) -> void:
 			if current_speed_percent < 0.8
 			else RunnerVisual.Animations.RUN
 		)
-	else: 
+	else:
 		_runner_visual.animation_name = RunnerVisual.Animations.IDLE
