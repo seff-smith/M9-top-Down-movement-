@@ -15,6 +15,7 @@ point_count = 2
 curve = SubResource("Curve_cl8lt")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_agra7"]
+lifetime_randomness = 0.03
 particle_flag_disable_z = true
 gravity = Vector3(0, -10, 0)
 scale_min = 0.5
@@ -34,12 +35,12 @@ shader_parameter/line_thickness = 0.5
 viewport_path = NodePath("SubViewport")
 
 [node name="Runner" type="CharacterBody2D"]
+slide_on_ceiling = false
 script = ExtResource("1_ij6vw")
-max_speed = null
-acceleration = null
-deceleration = null
 
-[node name="dust" type="GPUParticles2D" parent="."]
+[node name="Dust" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -81)
 sub_emitter = NodePath(".")
 texture = ExtResource("2_x5rx3")
 trail_lifetime = 0.06999999999999999
@@ -47,15 +48,16 @@ process_material = SubResource("ParticleProcessMaterial_agra7")
 
 [node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0.15686275)
-position = Vector2(0, 57)
+position = Vector2(0, -24)
 scale = Vector2(0.55468756, 0.55468756)
 texture = ExtResource("2_2nvb5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 39)
+position = Vector2(0, -42)
 shape = SubResource("CircleShape2D_ij6vw")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -81)
 
 [node name="SubViewport" type="SubViewport" parent="."]
 transparent_bg = true
@@ -68,4 +70,5 @@ scale = Vector2(0.5, 0.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_cl8lt")
+position = Vector2(0, -81)
 texture = SubResource("ViewportTexture_d46nv")
